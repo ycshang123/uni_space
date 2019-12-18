@@ -1,14 +1,15 @@
 <template>
 	<view class="container">
 		<view class="sy-input-box box-height-a">
-			<input type="number" placeholder="请输入手机号/账号/邮箱" class="sy-input" v-model="userDto.name" maxlength="11" />
-			<view class="nowrap sy-center"><input type="password" placeholder="请输入密码" class="sy-input" v-model="userDto.password" /></view>
+			<label>{{mobileTip}}</label>
+			<input type="number" placeholder="请输入手机号/账号/邮箱" class="sy-input" v-model="queryDto.name" maxlength="11" />
+			<view class="nowrap sy-center"><input type="password" placeholder="请输入密码" class="sy-input" v-model="queryDto.password" /></view>
 			<view class="select group-row-between">
 				<navigator url="/pages/register/register"><text class="title-sub">快速注册</text></navigator>
-				<navigator url="/pages/forget_p/forget_p"><text class="title-sub">找回密码</text></navigator>
+				 <navigator url="/pages/forget_p/forget_p"><text class="title-sub">找回密码</text></navigator>
 			</view>
-			<button class="r-button" @tap="signIn(userDto)">登录</button>
-		</view>
+			<button class="r-button" @tap="signIn(queryDto)" :disabled="queryDto.name == null || queryDto.password == null">登录</button></navigator>
+	</view>
 	</view>
 </template>
 
@@ -16,35 +17,45 @@
 export default {
 	data() {
 		return {
-			userDto: {
+			mobileTip:'',
+			queryDto: {
 				name: '',
 				password: ''
 			},
-			user: {}
+			user:[]
 		};
 	},
 	onLoad() {},
 	methods: {
-		signIn: function(userDto) {
+		signIn: function(queryDto) {
+			if (this.queryDto.name == '' || this.queryDto.password == '') {
+				this.mobileTip = '信息不完备'
+			} else {
 			uni.request({
-				url: this.$baseUrl + '/user/sign_in',
+				url: this.$baseUrl + '/user/signin',
 				method: 'POST',
 				data: {
-					name: userDto.name,
-					password: userDto.password
+					equalsString: queryDto.name,
+					password: queryDto.password
 				},
 				header: {
 					'content-type': 'application/json'
 				},
 				success: res => {
-					this.user = res.data.data;
-					console.log(this.user);
+					console.log(res.data.data);
 					if (res.data.code === 1) {
 						uni.showToast({
 							title: '登录成功'
 						});
-						uni.navigateTo({
-							url: '/pages/my_info/my_info?user=' + encodeURIComponent(JSON.stringify(this.user))
+						uni.switchTab({
+							url:'/pages/index/index'
+						})
+						uni.setStorage({
+							key: 'user',
+							data: res.data.data,
+							success: function() {
+								console.log('success');
+							}
 						});
 					} else {
 						uni.showModal({
@@ -55,6 +66,8 @@ export default {
 				}
 			});
 		}
+		}
+	
 	}
 };
 </script>

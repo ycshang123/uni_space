@@ -4,7 +4,7 @@
 			<label>{{ mobileTip }}</label>
 			<input type="text" class="sy-input" placeholder="手机号" v-model="userDto.name" maxlength="11" @input="checkPhone()" />
 			<view class="group-row-center">
-				<input type="text" class="sy-input-small" placeholder="验证码" maxlength="6" v-model="verifyCode" />
+				<input type="text" class="sy-input-small" placeholder="验证码" maxlength="6" v-model="userDto.verifyCode" />
 				<button class="btn" @tap="getVerifyCode()" :disabled="status">获取验证码</button>
 			</view>
 			<label>{{UpassWordTip}}</label>
@@ -27,9 +27,10 @@ export default {
 			},
 			userDto: {
 				name: '',
+				verifyCode: '',
 				password: ''
 			},
-			verifyCode: '',
+		
 			re_password: '',
 			passWordTip: '',
 			mobileTip: '',
@@ -107,15 +108,15 @@ export default {
 				(this.re_password = ''), (this.userDto.password = '');
 			} else {
 				uni.request({
-					url: this.$baseUrl + '/user/userPassword',
+					url: this.$baseUrl + '/user/password',
 					method: 'PUT',
 					header: {
 						'content-type': 'application/json'
 					},
 					data: {
-						name: this.userDto.name,
+						mobile: this.userDto.name,
 						password: this.userDto.password,
-						verifyCode: this.verifyCode
+						verifyCode: this.userDto.verifyCode,
 					},
 					success: res => {
 						if (res.data.code === 1) {

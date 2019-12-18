@@ -18,6 +18,15 @@
 	    -ms-flex-pack: distribute;
 	        justify-content: space-around;
 }
+.group-row-around {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+}
 .sy-input {
 	width: 100%;
 	height: 65rpx;
@@ -37,6 +46,16 @@
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.group-row-simple{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	    -ms-flex-align: center;
@@ -104,6 +123,19 @@ button::after{
 	text-align: center;
 	border-bottom: #eeeeee;
 }
+.d-wrap {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
 .text-end{
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -113,5 +145,42 @@ button::after{
 	-webkit-justify-content: flex-end;
 	    -ms-flex-pack: end;
 	        justify-content: flex-end;
+}
+.s-between-col{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	-webkit-flex-direction:column;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+label {
+	color: #f44336;
+	text-align: center;
+	font-size: 12px;
+}
+.v-bar {
+	width: 100%;
+	height: 80rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	background: #e8eaf6;
+	color: #9fa8da;
 }
 

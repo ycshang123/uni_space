@@ -1,198 +1,256 @@
 <template>
 	<view class="container">
 		<view class="v-bar">
-			<text>返回</text>
-			<text @tap="updateUserData(userBefore)">确定</text>
+			<navigator url="/pages/my/my"><text>取消</text></navigator>
+			<text @tap="updateUserData(userDto)">确定</text>
 		</view>
-		<avatar class="s-avatar" selWidth="400upx" selHeight="500upx" 
-		@upload="myUpload"
-		:upImgConfig="upImgOos" @onUpImg="upOosData"
-		ref="uImage"
-		 :avatarSrc="url" 
-		 avatarStyle="width: 200upx; height: 200upx; border-radius: 100%; border: 2px solid #4db6ac;"></avatar>
+		<view class="s-avatar">
+			<view class="s-avatar-row"><image :src="userDto.avatar" @tap="showActionSheet()"></image></view>
+		</view>
 		<view class="s-text">
 			<view class="s-box">
-				<text class="title-sub">昵称</text>
-				<input class="s-input" v-model="userBefore.nickname" />
+				<view class="s-title group-row-center"><text class="title-sub ">昵称</text></view>
+				<view class="s-content s-column">
+					<input class="s-input" v-model="userDto.nickname" v-if="statusName" />
+					<text v-else>{{ userDto.nickname }}</text>
+				</view>
+				<view class="s-title"><image src="../../static/img/edit.png" @tap="changeName()"></image></view>
 			</view>
 			<view class="s-box">
-				<text class="title-sub">简介</text>
-				<input class="s-input" v-model="userBefore.introduction" />
+				<view class="s-title group-row-center"><text class="title-sub ">简介</text></view>
+				<view class="s-content s-column">
+					<textarea class="s-input" v-model="userDto.introduction" v-if="statusInfo" />
+					<text v-else>{{ userDto.introduction }}</text>
+				</view>
+				<view class="s-title"><image src="../../static/img/edit.png" @tap="changeInfo()"></image></view>
 			</view>
 			<view class="s-box">
-				<text class="title-sub">城市</text>
-				<input class="s-input" v-model="userBefore.address" />
+				<view class="s-title group-row-center"><text class="title-sub ">城市</text></view>
+				<view class="s-content s-column">
+					<input class="s-input" v-model="userDto.address" v-if="statusCity" />
+					<text v-else>{{ userDto.address }}</text>
+				</view>
+				<view class="s-title"><image src="../../static/img/edit.png" @tap="changeCity()"></image></view>
 			</view>
 			<view class="s-box">
+				<view class="s-title group-row-center"><text class="title-sub ">性别</text></view>
+				<view class="s-content s-column">
+					<radio-group  v-if="statusGender">
+						<radio>男</radio>
+						<radio>女</radio>
+						<radio>保密</radio>
+					</radio-group>
+					<text v-else>{{ userDto.gender }}</text>
+				</view>
+				<view class="s-title"><image src="../../static/img/edit.png" @tap="changeGender()"></image></view>
+			</view>
+			<!-- <view class="s-box">
 				<text class="title-sub">性别</text>
-				<input class="s-input" v-model="userBefore.gender" />
-			</view>
+				<input class="s-input" v-model="userDto.gender" />
+			</view> -->
 			<view class="s-box">
+				<view class="s-title group-row-center"><text class="title-sub ">星座</text></view>
+				<view class="s-content s-column">
+					<select id ="constellation" v-if="statusStar">
+						<option :value="item" v-for="(item,index) in constellationList" :key="index">{{item}}</option>
+					</select>
+					
+					<text v-else>{{ userDto.constellation }}</text>
+				</view>
+				<view class="s-title"><image src="../../static/img/edit.png" @tap="changeStar()"></image></view>
+			</view>
+			<!-- <view class="s-box">
 				<text class="title-sub">星座</text>
-				<input class="s-input" v-model="userBefore.constellation" />
+				<input class="s-input" v-model="userDto.constellation" />
 			</view>
 			<view class="s-box">
 				<text class="title-sub">生日</text>
-				<input class="s-input" v-model="userBefore.birthday" />
-			</view>
-			
+				<input class="s-input" v-model="userDto.birthday" />
+			</view> -->
 		</view>
 	</view>
 </template>
 
 <script>
 var aliyunImg;
-import avatar from '../../components/yq-avatar/yq-avatar.vue';
+// import avatar from '../../components/yq-avatar/yq-avatar.vue';
 export default {
-	components: {
-		avatar
-	},
 	data() {
 		return {
-			url: '',
-			userInfo: '',
-			userBefore: {},
-			oosArr: [],
-			// 阿里云oos相关配置
-			upImgOos: {
-				aliConfig: {
-					// 阿里云oos上传key_secret(后端传)
-					AccessKeySecret: '5iB8rf4vSVl4HmqWOMPIOkAgzmPvI8',
-					// 阿里云oos上传key_id(后端传)
-					OSSAccessKeyId: 'LTAI4wU5hODbg7FX',
-					// 阿里云oos上传目录(必须存在)
-					oosDirectory: 'uniapp',
-					// 阿里云上传url
-					url: 'http://sunui-uniapp.oss-cn-beijing.aliyuncs.com/'
-				},
-				// 是否开启notli(开启的话就是选择完直接上传，关闭的话当count满足数量时才上传)
-				notli: false,
-				// 图片数量
-				count: 4,
-				// 上传图片背景修改
-				upBgColor: '#E8A400',
-				// 上传icon图标颜色修改(仅限于iconfont)
-				upIconColor: '#eee',
-				// 上传svg图标名称
-				upSvgIconName: 'icon-certificate'
-			}
+			userDto: {},
+			personal: {
+				id: 2
+			},
+			constellationList:['白羊座','金牛座','双子座','巨蟹座','狮子座','处女座','天枰座','射手座','摩羯座','水瓶座','双鱼座'],
+			statusName: false,
+			statusInfo: false,
+			statusCity: false,
+			statusGender:false,
+			statusStar:false,
 		};
 	},
+	onLoad() {
+		this.selectUser(this.userDto);
+		// let that = this;
+		// uni.getStorage({
+		// key:'user',
+		// success: function(res) {
+		// that.personal = res.data;
+		// console.log(that.personal)
+		// that.selectUser(that.userDto);
+		// 	}
+		// });
+	},
 	methods: {
-		uImageTap() {
-			this.$refs.uImage.uploadimage(this.upImgOos);
-		},
-		// 删除图片 -2019/05/12(本地图片进行删除)
-		async delImgInfo(e) {
-			console.log('你删除的图片地址为:', e, this.oosArr.splice(e.index, 1));
-		},
-		// 阿里云
-		async upOosData(e) {
-			// 上传图片数组
-			let arrImg = [];
-			for (let i = 0, len = e.length; i < len; i++) {
-				try {
-					if (e[i].path_server != '') {
-						await arrImg.push(e[i].path_server.split(','));
+		showActionSheet: function() {
+			var _this = this;
+			uni.showActionSheet({
+				itemList: ['拍照', '从相册选择'],
+				success: function(res) {
+					console.log('选中了第' + (res.tapIndex + 1) + '个按钮');
+					//选择的是拍照功能
+					if (res.tapIndex == 0) {
+						uni.chooseImage({
+							count: 1,
+							sourceType: ['camera'],
+							success: function(res) {
+								uni.saveImageToPhotosAlbum({
+									filePath: res.tempFilePaths[0],
+									success: function() {
+										console.log('save success');
+										uni.uploadFile({
+											url: this.$baseUrl + '/img',
+											filePath: res.tempFilePaths[0],
+											name: 'file',
+											formData: {},
+											success: uploadFileRes => {
+												console.log(uploadFileRes.data.data);
+												_this.userDto.avatar = uploadFileRes.data.data;
+												_this.userAvatar(_this.userDto);
+											}
+										});
+									}
+								});
+							}
+						});
 					}
-				} catch (err) {
-					console.log('上传失败...');
-				}
-			}
-			// 图片信息保存到data数组
-			this.oosArr = arrImg;
-
-			// 可以根据长度来判断图片是否上传成功. 2019/4/11新增
-			if (arrImg.length == this.upImgOos.count) {
-				uni.showToast({
-					title: `上传成功`,
-					icon: 'none'
-				});
-			}
-		},
-		// 获取上传图片阿里云
-		getUpImgInfoOos() {
-			console.log('阿里云转成一维数组:', this.oosArr.join().split(',')[0]);
-		},
-
-		myUpload(rsp) {
-			this.url = rsp.path; //更新头像方式一
-			//rsp.avatar.imgSrc = rsp.path; //更新头像方式二
-			console.log(this.url);
-			uni.request({
-				url: this.$baseUrl + '/user/userAvatar',
-				method: 'PUT',
-				header: {
-					'content-type': 'application/json'
-				},
-				data: {
-					id: this.userBefore.id,
-					avatar: this.url
+					//从相册选择
+					if (res.tapIndex == 1) {
+						uni.chooseImage({
+							count: 1,
+							sizeType: ['original', 'compressed'],
+							sourceType: ['album'],
+							success: function(res) {
+								console.log('选中图片:' + JSON.stringify(res.tempFilePaths));
+								uni.uploadFile({
+									// header:{
+									// 	'content-type':'application/json'
+									// },
+									url: 'http://2p7173d335.zicp.vip:41065/api/img',
+									filePath: res.tempFilePaths[0],
+									name: 'file',
+									formData: {},
+									success: uploadFileRes => {
+										console.log(uploadFileRes.data);
+										let data = {
+											code: 1,
+											msg: '',
+											data: ''
+										};
+										data = JSON.parse(uploadFileRes.data);
+										console.log(data.data[0]);
+										_this.userDto.avatar = data.data[0];
+										_this.userAvatar(_this.userDto);
+									}
+								});
+							}
+						});
+					}
 				}
 			});
-			success: res =>{
-				console.log(res.data.data)
-			uni.showToast({
-				title: '图片修改成功'
-			});	
-			}
-			
 		},
-		updateUserData: function(userBefore) {
-			userBefore = this.userBefore;
+		userAvatar: function(userDto) {
 			uni.request({
-				url: this.$baseUrl + '/user/userData',
+				url: this.$baseUrl + '/user/avatar',
+				method: 'PUT',
+				data: {
+					id: userDto.id,
+					avatar: userDto.avatar
+				},
+				success: res => {
+					if (res.data.code === 1) {
+					} else {
+						uni.showToast({
+							title: '头像修改失败'
+						});
+					}
+				}
+			});
+		},
+		updateUserData: function(userDto) {
+			userDto = this.userDto;
+			uni.request({
+				url: this.$baseUrl + '/user/data',
 				method: 'PUT',
 				header: {
 					'content-type': 'application/json'
 				},
 				data: {
-					id: userBefore.id,
-					address: userBefore.address,
-					nickname: userBefore.nickname,
-					introduction: userBefore.introduction,
-					birthday: userBefore.birthday,
-					constellation: userBefore.constellation,
-					gender: userBefore.gender
+					id: userDto.id,
+					address: userDto.address,
+					nickname: userDto.nickname,
+					introduction: userDto.introduction,
+					birthday: userDto.birthday,
+					constellation: userDto.constellation,
+					gender: userDto.gender
 				},
 				success: res => {
 					if (res.data.code === 1) {
 						uni.showToast({
 							title: '信息修改成功'
 						});
-						console.log(userBefore);
-						console.log(this.userBefore);
 					}
 				}
 			});
 		},
-		modifyAvatar: function() {
-			console.log(this.url),
-				uni.request({
-					url: this.$baseUrl + '/user/userAvatar',
-					method: 'POST',
-					data: {
-						id: this.userBefore.id,
-						avatar: this.url
-					},
-					header: {
-						'content-type': 'application/json'
-					},
-					success: res => {
-						if (res.data.code === 1) {
-							console.log(this.url);
-							console.log(res.data.data);
-						}
+		selectUser: function(userDto) {
+			userDto = this.personal;
+			uni.request({
+				url: this.$baseUrl + '/user/id',
+				method: 'POST',
+				header: {
+					'content-type': 'application/json'
+				},
+				data: {
+					id: this.personal.id
+				},
+				success: res => {
+					console.log(this.personal.id);
+					if (res.data.code === 1) {
+						console.log(res.data.data);
+						this.userDto = res.data.data;
+						console.log(this.userDto);
 					}
-				});
+				}
+			});
+		},
+		changeName() {
+			this.statusName = !this.statusName;
+		},
+		changeInfo() {
+			this.statusInfo = !this.statusInfo;
+		},
+		changeCity() {
+			this.statusCity = !this.statusCity;
+		},
+		changeGender(){
+			this.statusGender = !this.statusGender;
+		},
+		changeStar(){
+			this.statusStar = !this.statusStar;
 		}
-	},
-	onLoad: function(option) {
-		//option为object类型，会序列化上个页面传递的参数
-		console.log(JSON.parse(decodeURIComponent(option.user)));
-		this.userInfo = JSON.parse(decodeURIComponent(option.user));
-		this.userBefore = this.userInfo;
-		this.url = this.userInfo.avatar;
+		
+		
 	}
 };
 </script>
@@ -200,7 +258,7 @@ export default {
 <style scoped>
 .s-avatar {
 	width: 100%;
-	height: 400upx;
+	height: 200upx;
 	background: #f4f3de;
 	display: flex;
 	justify-content: center;
@@ -209,22 +267,40 @@ export default {
 .s-text {
 	width: 100%;
 	margin: 0 auto;
-	height: 800upx;
+	/* height: 800upx; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 }
 .s-box {
-	height: 60px;
+	width: 100%;
+	height: 80px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	border-bottom: 1px solid #777777;
+}
+.s-title {
+	width: 15%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.s-title image {
+	width: 50%;
+	height: 20%;
+}
+.s-content {
+	width: 70%;
+	height: 100%;
 }
 .s-input {
-	width: 70%;
+	width: 100%;
 	height: 45px;
-	border-bottom: #777777;
+	border: 1px solid #777777;
+	border-radius: 10px;
 }
 .s-btn-big {
 	display: flex;
@@ -237,13 +313,15 @@ export default {
 .s-nickname {
 	margin-left: 20px;
 }
-.v-bar {
+
+.s-avatar-row {
+	width: 25%;
+	height: 65%;
+	border-radius: 50%;
+}
+.s-avatar-row image {
 	width: 100%;
-	height: 80upx;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	background: #e8eaf6;
-	color: #9fa8da;
+	height: 100%;
+	border-radius: 50%;
 }
 </style>

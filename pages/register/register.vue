@@ -2,13 +2,13 @@
 	<view class="container">
 		<view class="sy-input-box">
 			<label>{{mobileTip}}</label>
-			<input type="number" placeholder="请输入手机号" class="sy-input" v-model="userDto.mobile" required="required" maxlength="11" @focus="clearTip()" />
+			<input type="number" placeholder="请输入手机号" class="sy-input" v-model="queryDto.mobile" required="required" maxlength="11" @focus="clearTip()" />
 			<view class="yan nowrap">
-				<input type="text" placeholder="输入验证码" class=" sy-input-small" v-model="userDto.verifyCode" required="required" />
+				<input type="text" placeholder="输入验证码" class=" sy-input-small" v-model="queryDto.verifyCode" required="required" />
 				<button class="btn" @tap="checkPhone()" :disabled="status">{{codeBtn.text}}</button>
 			</view>
 			<label>{{UpassWordTip}}</label>
-			<input type="password" placeholder="8-16为字符,包含大小写字母和数字"  @input="checkPassword()" class="sy-input title-sub" v-model="userDto.password" />
+			<input type="password" placeholder="8-16为字符,包含大小写字母和数字"  @input="checkPassword()" class="sy-input title-sub" v-model="queryDto.password" />
 			<input type="password" placeholder="请确认密码" class="sy-input title-sub" v-model="re_password" @focus="clearTip()" />
 			<label>{{passWordTip}}</label>
 		</view>
@@ -26,20 +26,20 @@ export default {
 	data() {
 		return {
 			seconds: 60,
-			codeBtn: {
-				text: '获取验证码',
-				count: this.seconds
-			},
 			passWordTip:'',
 			re_password: '',
 			status: true,
 			mobileTip:'',
-			userDto:{
+			queryDto:{
 			mobile: '',
 			verifyCode: '',
 			UpassWordTip: '',
 			password:''	
-			}
+			},
+			codeBtn: {
+				text: '获取验证码',
+				count: this.seconds
+			},
 			
 		};
 	},
@@ -61,7 +61,7 @@ export default {
 			}, 1000);
 		},
 		checkPassword(){
-			var password = this.userDto.password;
+			var password = this.queryDto.password;
 			if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/.test(password)){
 				this.UpassWordTip ='密码格式不正确'
 			}else{
@@ -74,7 +74,7 @@ export default {
 				method: 'POST',
 				header: { 'content-type': 'application/x-www-form-urlencoded' },
 				data: {
-					mobile: this.userDto.mobile
+					mobile: this.queryDto.mobile
 				},
 				success: res => {
 					console.log(res.data.data);
@@ -83,7 +83,7 @@ export default {
 							title: '验证码已发送'
 						});
 						codes = res.data.code
-						mymobile = this.userDto.name
+						mymobile = this.queryDto.name
 						this.sendCode()
 					} else {
 						uni.showToast({
@@ -94,7 +94,7 @@ export default {
 			});
 		},
 		checkPhone(){
-			var phone =this.userDto.mobile
+			var phone =this.queryDto.mobile
 			    if(!(/^1[3456789]\d{9}$/.test(phone))){ 
 					this.mobileTip ='手机格式不正确';
 					this.status = true;
@@ -110,22 +110,22 @@ export default {
 			this.passWordTip ='';
 			this.status = false;
 		},
-		signUp: function(userDto) {
-			if(this.re_password !=this.userDto.password){
+		signUp: function(queryDto) {
+			if(this.re_password !=this.queryDto.password){
 				this.passWordTip ='两次密码输入不同，请重新输入密码'; 
 				this.re_password = '',
-				this.userDto.password =''
+				this.queryDto.password =''
 			}else{
 			uni.request({
-				url: this.$baseUrl + '/user/sign_up',
+				url: this.$baseUrl + '/user/signup',
 				method: 'POST',
 				header: {
 					'content-type': 'application/json'
 				},
 				data:{
-					name:this.userDto.mobile,
-					verifyCode:this.userDto.verifyCode,
-					password:this.userDto.password
+					equalsString:this.queryDto.mobile,
+					keyWords:this.queryDto.verifyCode,
+					password:this.queryDto.password
 				},
 				success: res => {
 					 if(res.data.code === 1){

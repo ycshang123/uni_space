@@ -1,4 +1,8 @@
 {
   "navigationBarTitleText": "我的",
-  "usingComponents": {}
+  "usingComponents": {
+    "dn-icon": "/components/dn-icon/dn-icon",
+    "wuc-tab": "/components/wuc-tab/wuc-tab",
+    "uni-popup": "/components/uni-popup/uni-popup"
+  }
 }

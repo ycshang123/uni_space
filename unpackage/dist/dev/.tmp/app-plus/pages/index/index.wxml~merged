@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{title}}</text></view></view>
-=======
-<view class="_div"></view>
->>>>>>> 88f85608e4261f9466bb11aad833ba5db2eeaa0e

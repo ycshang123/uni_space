@@ -9,6 +9,10 @@
 	flex-direction: column;
 	justify-content: space-around;
 }
+.group-row-around {
+	display: flex;
+	justify-content: space-around;
+}
 .sy-input {
 	width: 100%;
 	height: 65upx;
@@ -25,7 +29,10 @@
 	justify-content: center;
 	align-items: center;
 }
-
+.group-row-simple{
+	display: flex;
+	align-items: center;
+}
 .box-height-c{
 	height:500upx;
 }
@@ -78,7 +85,33 @@ button::after{
 	text-align: center;
 	border-bottom: #eeeeee;
 }
+.d-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
 .text-end{
 	display: flex;
 	justify-content: flex-end;
 }
+.s-between-col{
+	display: flex;
+	flex-direction:column;
+	justify-content: space-between;
+}
+label {
+	color: #f44336;
+	text-align: center;
+	font-size: 12px;
+}
+.v-bar {
+	width: 100%;
+	height: 80upx;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background: #e8eaf6;
+	color: #9fa8da;
+}
+
+

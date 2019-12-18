@@ -93,4 +93,15 @@
 	background: #e8eaf6;
 	color: #9fa8da;
 }
+.s-avatar-row.data-v-617cb7f2{
+	width: 30%;
+	height: 68%;
+	border: 1px solid #64b5f6;
+	border-radius: 50%;
+}
+.s-avatar-row image.data-v-617cb7f2{
+	width: 100%;
+	height:100%;
+	border-radius: 50%;
+}
 

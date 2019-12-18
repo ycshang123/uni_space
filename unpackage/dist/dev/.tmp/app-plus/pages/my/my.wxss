@@ -1,0 +1,50 @@
+
+.bar_b.data-v-2409ecee{
+	width: 100%;
+	height: 400rpx;
+	background:#fafafa;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.u_avatar.data-v-2409ecee{
+	width: 20%;
+	height:240rpx;
+	border:1px solid #000000;
+}
+.u_info.data-v-2409ecee{
+	width: 75%;
+	height: 240rpx;
+	border:1px solid #DD524D;
+}
+.user.data-v-2409ecee{
+	width: 100%;
+	height: 260rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+	border: 1px solid #4CD964;
+}
+.bar_logo.data-v-2409ecee{
+	width: 100%;
+	height: 120rpx;
+	border:1px solid #007AFF;
+}
+

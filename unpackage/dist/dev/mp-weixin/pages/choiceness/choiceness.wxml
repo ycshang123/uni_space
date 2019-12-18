@@ -1,1 +1,1 @@
-<view class="_div"></view>
+<view class="container data-v-33b1b46e"><view class="s-region data-v-33b1b46e">当前选择城市</view><view class="s-region data-v-33b1b46e"><picker mode="region" value="{{region}}" class="data-v-33b1b46e"><view class="s-region data-v-33b1b46e">{{region}}</view></picker></view></view>

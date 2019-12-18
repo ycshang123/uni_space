@@ -1,7 +1,7 @@
 
 .s-avatar.data-v-617cb7f2 {
 	width: 100%;
-	height: 400rpx;
+	height: 200rpx;
 	background: #f4f3de;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -19,7 +19,7 @@
 .s-text.data-v-617cb7f2 {
 	width: 100%;
 	margin: 0 auto;
-	height: 800rpx;
+	/* height: 800upx; */
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -38,7 +38,8 @@
 	        align-items: center;
 }
 .s-box.data-v-617cb7f2 {
-	height: 60px;
+	width: 100%;
+	height: 80px;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -50,11 +51,37 @@
 	-webkit-align-items: center;
 	    -ms-flex-align: center;
 	        align-items: center;
+	border-bottom: 1px solid #777777;
+}
+.s-title.data-v-617cb7f2 {
+	width: 15%;
+	height: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.s-title image.data-v-617cb7f2 {
+	width: 50%;
+	height: 20%;
+}
+.s-content.data-v-617cb7f2 {
+	width: 70%;
+	height: 100%;
 }
 .s-input.data-v-617cb7f2 {
-	width: 70%;
+	width: 100%;
 	height: 45px;
-	border-bottom: #777777;
+	border: 1px solid #777777;
+	border-radius: 10px;
 }
 .s-btn-big.data-v-617cb7f2 {
 	display: -webkit-box;
@@ -76,21 +103,14 @@
 .s-nickname.data-v-617cb7f2 {
 	margin-left: 20px;
 }
-.v-bar.data-v-617cb7f2 {
+.s-avatar-row.data-v-617cb7f2 {
+	width: 25%;
+	height: 65%;
+	border-radius: 50%;
+}
+.s-avatar-row image.data-v-617cb7f2 {
 	width: 100%;
-	height: 80rpx;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-justify-content: space-around;
-	    -ms-flex-pack: distribute;
-	        justify-content: space-around;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	background: #e8eaf6;
-	color: #9fa8da;
+	height: 100%;
+	border-radius: 50%;
 }
 

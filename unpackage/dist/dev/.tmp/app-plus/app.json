@@ -1,16 +1,19 @@
 {
   "pages": [
+    "pages/sign_m/sign_m",
     "pages/index/index",
+    "pages/imporvefriend/improvefriend",
+    "pages/addfriend/addfriend",
     "pages/choiceness/choiceness",
     "pages/dynamic/dynamic",
     "pages/message/message",
     "pages/my/my",
     "pages/sign_a/sign_a",
     "pages/register/register",
-    "pages/sign_m/sign_m",
     "pages/forget_p/forget_p",
     "pages/my_info/my_info",
     "pages/m_nickname/m_nickname",
+    "pages/friend/friend",
     "pages/m_introduction/m_introduction"
   ],
   "window": {
@@ -30,10 +33,10 @@
         "selectedIconPath": "static/img/index.png"
       },
       {
-        "pagePath": "pages/choiceness/choiceness",
-        "text": "精选",
-        "iconPath": "static/img/choiceness1.png",
-        "selectedIconPath": "static/img/choiceness.png"
+        "pagePath": "pages/friend/friend",
+        "text": "好友",
+        "iconPath": "static/img/friend1.png",
+        "selectedIconPath": "static/img/friend.png"
       },
       {
         "pagePath": "pages/dynamic/dynamic",
@@ -48,7 +51,7 @@
         "selectedIconPath": "static/img/message.png"
       },
       {
-        "pagePath": "pages/sign_m/sign_m",
+        "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "static/img/my1.png",
         "selectedIconPath": "static/img/my.png"
