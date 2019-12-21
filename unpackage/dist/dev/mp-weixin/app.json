@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/sign_m/sign_m",
+    "pages/dynamic/dynamic",
+    "pages/addPhoto/addPhoto",
+    "pages/index/index",
+    "pages/photoCreate/photoCreate",
+    "pages/message/message",
+    "pages/my/my",
+    "pages/sign_a/sign_a",
+    "pages/j_detail/j_detail",
+    "pages/myj_detail/myj_detail",
+    "pages/friend_page/friend_page",
+    "pages/imporvefriend/improvefriend",
+    "pages/addfriend/addfriend",
+    "pages/m_nickname/m_nickname",
+    "pages/m_introduction/m_introduction",
+    "pages/register/register",
+    "pages/forget_p/forget_p",
+    "pages/journal/journal",
+    "pages/picture/picture",
+    "pages/music/music",
+    "pages/friend/friend",
+    "pages/homepage/homepage",
+    "pages/theme/theme",
+    "pages/my_info/my_info"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "space",
+    "navigationBarBackgroundColor": "#f5f5f5",
+    "backgroundColor": "#e8dfc4"
+  },
+  "tabBar": {
+    "color": "#e0e0e0",
+    "selectedColor": "#212121",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/img/index1.png",
+        "selectedIconPath": "static/img/index.png"
+      },
+      {
+        "pagePath": "pages/friend/friend",
+        "text": "好友",
+        "iconPath": "static/img/friend1.png",
+        "selectedIconPath": "static/img/friend.png"
+      },
+      {
+        "pagePath": "pages/dynamic/dynamic",
+        "text": "动态",
+        "iconPath": "static/img/dynamic1.png",
+        "selectedIconPath": "static/img/dynamic.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "static/img/message1.png",
+        "selectedIconPath": "static/img/message.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "static/img/my1.png",
+        "selectedIconPath": "static/img/my.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "sunui-upbasic": "/components/sunui-upimg/sunui-upimg-basic",
+    "sunui-upoos": "/components/sunui-upimg/sunui-upimg-alioos"
+  },
+  "sitemapLocation": "sitemap.json"
+}

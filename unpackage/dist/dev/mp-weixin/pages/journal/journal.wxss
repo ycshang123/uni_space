@@ -1,0 +1,25 @@
+
+swiper {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.box {
+	width: 100%;
+	height: 200rpx;
+	white-space: nowrap;
+	border: 1px solid red;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.box-item {
+	width: 100%;
+	height: 100%;
+	border: 2rpx solid green;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: inline-block;
+}
+.swiper {
+    height: 140rpx;
+}
+

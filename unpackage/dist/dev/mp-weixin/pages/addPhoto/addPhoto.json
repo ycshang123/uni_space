@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加相册",
+  "usingComponents": {
+    "avatar": "/components/yq-avatar/yq-avatar"
+  }
+}

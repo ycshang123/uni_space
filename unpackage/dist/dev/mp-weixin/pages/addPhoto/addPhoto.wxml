@@ -1,0 +1,1 @@
+<view class="container"><sunui-upoos class="vue-ref" vue-id="1" upImgConfig="{{upImgOos}}" data-ref="uImage" data-event-opts="{{[['^onUpImg',[['upOosData']]],['^onImgDel',[['delImgInfo']]]]}}" bind:onUpImg="__e" bind:onImgDel="__e" bind:__l="__l"></sunui-upoos><button data-event-opts="{{[['tap',[['addPhotos',['$event']]]]]}}" class="s-btn" bindtap="__e">发表</button></view>

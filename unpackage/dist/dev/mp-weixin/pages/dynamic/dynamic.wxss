@@ -1,0 +1,15 @@
+
+.s-text{
+	width:100%;
+}
+.s-btn{
+	width: 100%;
+	background:#3498DB;
+	color: #FFFFFF;
+}
+.s-input{
+	width: 100%;
+	height: 80rpx;
+	 border-bottom:1px solid #CCCCCC;
+}
+

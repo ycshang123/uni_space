@@ -1,0 +1,19 @@
+
+.r-button.data-v-8834925c {
+	width: 100%;
+}
+.sy-input-box.data-v-8834925c {
+	margin-top: 25%;
+}
+.sy-input.data-v-8834925c {
+	height: 110rpx;
+}
+button.data-v-8834925c::after {
+	border: none;
+}
+.select.data-v-8834925c {
+	margin-top: 10%;
+	margin: 0 auto;
+	width: 90%;
+}
+

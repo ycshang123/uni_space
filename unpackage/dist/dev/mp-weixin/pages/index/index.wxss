@@ -1,0 +1,164 @@
+
+.d-change {
+	background-color: #ffffff;
+}
+.red {
+	background-color: #ff0000;
+}
+.d-content-l {
+	height: 90%;
+	overflow: hidden;
+}
+.d-icon-l {
+	width: 80%;
+}
+.d-text-color {
+	color: #f4a460;
+}
+.d-like-l {
+	width: 100%;
+	height: 100%;
+}
+.d-comment-ll {
+	width: 100%;
+	height: 100%;
+}
+.d-like {
+	width: 20%;
+	height: 100%;
+}
+.d-comment-l {
+	width: 20%;
+	height: 100%;
+}
+.d-content {
+	width: 90%;
+	height: 20%;
+	color: #7a8b8b;
+	margin: 0 auto;
+	font-size: 14px;
+	text-indent: calc(5%);
+}
+.d-fen-btn {
+	width: 20%;
+	height: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	background-color: #ffffff;
+}
+.mar {
+	margin: 0 auto;
+}
+.d-box {
+	width: 100%;
+	height: 100%;
+	white-space: nowrap;
+}
+.d-box-item {
+	width: 100%;
+	height: 100%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: inline-block;
+}
+.d-box-item-img {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+.d-index-box {
+	width: 93%;
+	height: 700rpx;
+	margin-top: 6%;
+	-webkit-box-shadow: 3px 3px 3px 3px #e8e8e8;
+	        box-shadow: 3px 3px 3px 3px #e8e8e8;
+	background-color: #ffffff;
+	border-radius: 20rpx;
+}
+.d-index-box-l {
+	width: 90%;
+	height: 15%;
+	margin: 0 auto;
+}
+.d-index-box-ll {
+	width: 80%;
+	height: 40%;
+	border-radius: 10px;
+	margin: 0 auto;
+}
+.d-index-box-lll {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	width: 90%;
+	height: 10%;
+	margin: 0 auto;
+}
+.d-index-box-llll {
+	width: 99%;
+	height: 7%;
+	margin: 0 auto;
+}
+.d-index-box-title {
+	width: 90%;
+	height: 15%;
+	font-size: 40rpx;
+	font-weight: 550;
+	color: #6c7b8b;
+	margin: 0 auto;
+}
+.d-index-box-llllll {
+	width: 98%;
+	height: 8%;
+	margin: 0 auto;
+	font-size: 30rpx;
+}
+.d-nick-l {
+	width: 80%;
+	height: 100%;
+}
+.d-ri {
+	margin-left: 3%;
+}
+.d-nick {
+	width: 70rpx;
+	height: 70rpx;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+.d-nickl {
+	width: 60rpx;
+	height: 80%;
+	border-radius: 50%;
+}
+.d-text {
+	width: 80%;
+	height: 100%;
+	font-size: 37rpx;
+}
+.d-cover {
+	width: 100%;
+	height: 100%;
+}
+.d-create {
+	font-size: 30rpx;
+}
+

@@ -1,0 +1,67 @@
+
+.d-hom-top.data-v-3aea4d84 {
+	width: 85%;
+	margin: 0 auto;
+	height: 260rpx;
+}
+.d-hom-img-avatar.data-v-3aea4d84 {
+	width: 23%;
+	height: 50%;
+	border-radius: 50%;
+}
+.d-hom-nickname.data-v-3aea4d84 {
+	width: 98%;
+	margin: 0 auto;
+	height: 35%;
+	font-size: 40rpx;
+}
+.d-hom-gra.data-v-3aea4d84 {
+	width: 98%;
+	margin: 0 auto;
+	height: 15%;
+	font-size: 30rpx;
+	border-bottom: 1rpx solid #E0E0E0;
+}
+.d-hom-gra-l.data-v-3aea4d84 {
+	color: #007AFF;
+}
+.swiper.data-v-3aea4d84 {
+    height: 140rpx;
+}
+swiper.data-v-3aea4d84 {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.d-content.data-v-3aea4d84 {
+	width: 90%;
+	height: 200rpx;
+}
+.d-content-img.data-v-3aea4d84 {
+	width: 20%;
+	height: 100%;
+	background-color: #F1F1F1;
+}
+.d-content-img-l.data-v-3aea4d84 {
+	width: 25%;
+	height: 100%;
+	border-radius: 50%;
+}
+.d-content-right.data-v-3aea4d84 {
+	width: 80%;
+	height: 100%;
+	background-color: #C8C7CC;
+}
+.d-content-title.data-v-3aea4d84 {
+	width: 100%;
+	height: 30%;
+	background-color: #008000;
+}
+.d-content-content.data-v-3aea4d84 {
+	width: 100%;
+	height: 70%;
+	background-color: #424242;
+}
+.d-content-content-l.data-v-3aea4d84 {
+	font-size: 20rpx;
+}
+

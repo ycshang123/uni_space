@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "动态",
+  "usingComponents": {
+    "uni-evaluate": "/components/xiujun-evaluate/uni-evaluate",
+    "dn-icon": "/components/dn-icon/dn-icon"
+  }
+}

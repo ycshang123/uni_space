@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的主页日志详情",
+  "usingComponents": {
+    "uni-evaluate": "/components/xiujun-evaluate/uni-evaluate",
+    "dn-icon": "/components/dn-icon/dn-icon"
+  }
+}

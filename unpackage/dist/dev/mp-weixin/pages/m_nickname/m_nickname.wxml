@@ -1,0 +1,1 @@
+<view class="container"><view class="a"><view class="b">性别</view><view class="c"><picker value="{{index}}" range="{{constellationList}}" data-event-opts="{{[['change',[['bindPickerChange',['$event']]]]]}}" bindchange="__e"><view>{{constellationList[index]}}</view></picker></view></view></view>
